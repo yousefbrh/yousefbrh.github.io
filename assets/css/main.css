@@ -261,6 +261,7 @@ input, select, textarea {
 		margin-bottom: 50px;
 	}
 
+
 	sub {
 		font-size: 0.8rem;
 		position: relative;
@@ -1328,7 +1329,8 @@ input, select, textarea {
 			display: block;
   			margin-left: auto;
  			margin-right: auto;
-			margin-bottom: 20px;
+			margin-bottom: 30px;
+			margin-top: -20px;
 		}
 
 			#header .logo .icon:before {
