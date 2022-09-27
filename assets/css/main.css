@@ -60,6 +60,19 @@ mark {
 	color: inherit;
 }
 
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 4px;
+  }
+  
+  .column {
+	flex: 50%;
+	max-width: 50%;
+	padding: 0 4px;
+	margin-bottom: 20px;
+  }
+
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
@@ -196,6 +209,9 @@ input, select, textarea {
 			width: max-content;
 			padding-bottom: 0.5rem;
 			margin: 0 0 2rem 0;
+			display: block;
+  			margin-left: auto;
+ 			margin-right: auto;
 		}
 
 	h1 {
@@ -238,6 +254,11 @@ input, select, textarea {
 			line-height: 1.5;
 		}
 
+	}
+
+	.center{
+		text-align: center;
+		margin-bottom: 50px;
 	}
 
 	sub {
@@ -1296,6 +1317,18 @@ input, select, textarea {
 			line-height: 5.5rem;
 			border: solid 1px #ffffff;
 			border-radius: 100%;
+		}
+
+		#work .logo {
+			width: 10rem;
+			height: 10rem;
+			line-height: 5.5rem;
+			border: solid 1px #ffffff;
+			border-radius: 100%;
+			display: block;
+  			margin-left: auto;
+ 			margin-right: auto;
+			margin-bottom: 20px;
 		}
 
 			#header .logo .icon:before {
