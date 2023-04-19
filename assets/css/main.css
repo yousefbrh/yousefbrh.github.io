@@ -1694,3 +1694,23 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+.title {
+	display: flex;
+	align-items: center;
+	margin: 0 0 2rem 0;
+	justify-content: center;
+	flex-direction: row-reverse;
+
+}
+.title .major {
+	margin: 0;
+}
+.title a {
+	border-bottom: none;
+}
+.play-icon {
+	width: 25px;
+	height: auto;
+	margin-right: 0.5rem;
+}
