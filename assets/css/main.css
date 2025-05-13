@@ -1321,16 +1321,16 @@ input, select, textarea {
 		}
 
 		#work .logo {
-			width: 10rem;
-			height: 10rem;
-			line-height: 5.5rem;
-			border: solid 1px #ffffff;
-			border-radius: 100%;
-			display: block;
+  			width: 10rem;
+  			height: 10rem;
+  			line-height: 5.5rem;
+  			border: solid 1px #ffffff;
+  			border-radius: 100%;
+  			display: block;
   			margin-left: auto;
- 			margin-right: auto;
-			margin-bottom: 30px;
-			margin-top: -20px;
+  			margin-right: auto;
+  			margin-bottom: 30px;
+  			margin-top: -20px;
 		}
 
 			#header .logo .icon:before {
@@ -1713,4 +1713,21 @@ input, select, textarea {
 	width: 25px;
 	height: auto;
 	margin-right: 0.5rem;
+	transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-icon:hover {
+	transform: scale(1.2);
+  	opacity: 0.9;
+  	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#work a .logo {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#work a .logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
