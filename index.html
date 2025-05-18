@@ -21,6 +21,7 @@
 		<meta name="canonical" content="https://yousefborhani.me">
 		<meta name="keywords" content="Unity Developer,Game Developer,Software Engineer">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link id="favicon" rel="icon" href="images/UnityDark.ico" type="image/x-icon">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -579,6 +580,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					"@id": "https://www.yousefborhani.me"
 				  }
 				}
+			</script>
+
+			<script>
+			function updateFavicon() {
+  				const favicon = document.getElementById("favicon");
+  				const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  				favicon.href = isDarkMode ? "images/UnityDark.ico" : "images/UnityLight.ico";
+			}
+
+			// Run on page load
+			updateFavicon();
+
+			// Listen for changes in color scheme
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
 			</script>
 
 	</body>
