@@ -20,14 +20,16 @@
 		<meta name="twitter:image" content="images/logo-1.webp">
 		<meta name="canonical" content="https://yousefborhani.me">
 		<meta name="keywords" content="Unity Developer,Game Developer,Software Engineer">
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preload" as="image" href="images/logo-1.webp">
+		<link rel="preload" as="style" href="assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
 		<link id="favicon" rel="icon" href="images/UnityDark.ico" type="image/x-icon">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
  		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   		<link rel="dns-prefetch" href="https://fonts.googleapis.com">
   		<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-		<link rel="preload" as="image" href="images/logo-1.webp">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600&display=swap" rel="stylesheet">
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600"></noscript>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -37,8 +39,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<div class="logo">
-							<img src="images/logo-1.webp" fetchpriority="high" class="logo">
+						<div>
+							<img src="images/logo-1.webp" fetchpriority="high" decoding="async" width="160" height="160" class="logo" alt="Site logo">
 						</div>
 						<div class="content">
 							<div class="inner">

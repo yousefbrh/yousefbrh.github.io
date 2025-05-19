@@ -1317,6 +1317,8 @@ input, select, textarea {
 			line-height: 5.5rem;
 			border: solid 1px #ffffff;
 			border-radius: 100%;
+			display: block;
+  			margin: 0 auto;
 		}
 
 		#work .logo {
