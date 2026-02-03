@@ -1,0 +1,271 @@
+:root {
+  --bg: #141824;
+  --card: #20263d;
+  --text: #e6e9f2;
+  --muted: #a2a8c3;
+  --accent: #6cf2c2;
+  --accent-soft: rgba(108, 242, 194, 0.18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(1000px 600px at 20% -20%, #26315a 0%, transparent 60%),
+    radial-gradient(800px 500px at 90% 10%, #1d2a4d 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* INTRO */
+.intro {
+  text-align: center;
+  padding: 100px 20px 80px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 25px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(108,242,194,0.05),
+              0 20px 40px rgba(0,0,0,0.6);
+}
+
+.intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 14px;
+}
+
+.tagline {
+  max-width: 620px;
+  margin: auto;
+  color: var(--muted);
+}
+
+/* PROJECTS */
+.projects {
+  padding: 70px 20px;
+  max-width: 960px;
+  margin: auto;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.project-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters button.active,
+.filters button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* PROJECT CARD */
+.project-card {
+  display: flex;
+  gap: 35px;
+  padding: 28px;
+  margin-bottom: 60px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.project-image img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.platforms {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.platform:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.platform-link,
+.platform-link:visited {
+  color: inherit;         /* keeps icon color unchanged */
+}
+
+.video-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.video-btn:hover {
+  background: var(--accent-soft);
+  transform: scale(1.05);
+}
+
+.description {
+  color: var(--muted);
+  max-width: 520px;
+}
+
+/* CV — JUICY */
+.cv {
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.cv-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.cv-btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: var(--accent-soft);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease;
+}
+
+.cv-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: var(--accent-soft);
+  box-shadow: 0 10px 30px rgba(108,242,194,0.35);
+}
+
+.cv-btn:hover::after {
+  opacity: 1;
+}
+
+.cv-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* CONTACT — EXTRA JUICE */
+.contact {
+  text-align: center;
+  padding: 100px 20px 120px;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.contact-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(108,242,194,0.35);
+}
+
+.contact-links a:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* LinkedIn */
+.contact-links a i.fa-linkedin {
+  color: #0077b5;
+}
+
+/* Email */
+.contact-links a i.fa-envelope {
+  color: #e53935;
+}
+
+/* Telegram */
+.contact-links a i.fa-telegram {
+  color: #0088cc;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
