@@ -1,67 +1,136 @@
-const cards = document.querySelectorAll('.project-card');
-const filterButtons = document.querySelectorAll('.filters button');
+/* ================================
+   PROJECT SHOW MORE + HIT TAG UX
+================================ */
 
-/* APPLY FILTER FUNCTION */
-function applyFilter(filter) {
-  cards.forEach(card => {
-    const tags = card.dataset.tags.split(' ');
-    card.style.display =
-      filter === 'all' || tags.includes(filter)
-        ? 'flex'
-        : 'none';
-  });
-}
+/* Select all project cards */
+const projectCards = document.querySelectorAll(".project-card");
 
-/* FILTER CLICK */
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+/* Create arrays */
+let hitProjects = [];
+let normalProjects = [];
 
-    applyFilter(btn.dataset.filter);
-  });
+/* Separate projects by tag */
+projectCards.forEach((card) => {
+  const tag = card.dataset.tag;
+
+  if (tag === "hit") {
+    hitProjects.push(card);
+    card.classList.add("hit-project");
+  } else {
+    normalProjects.push(card);
+    card.classList.add("hidden-project");
+  }
 });
 
-/* INITIAL FILTER ON LOAD */
-const initiallyActiveBtn =
-  document.querySelector('.filters button.active') ||
-  document.querySelector('.filters button[data-filter="all"]');
+/* ================================
+   SHOW ONLY HIT PROJECTS INITIALLY
+================================ */
 
-if (initiallyActiveBtn) {
-  initiallyActiveBtn.classList.add('active');
-  applyFilter(initiallyActiveBtn.dataset.filter);
-}
+normalProjects.forEach((card) => {
+  card.style.display = "none";
+});
 
-/* SCROLL REVEAL */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.15 });
+/* ================================
+   CREATE SHOW MORE BUTTON
+================================ */
 
-cards.forEach(card => {
+const projectsSection = document.querySelector(".projects");
+
+const showMoreBtn = document.createElement("button");
+showMoreBtn.innerText = "Show More Projects ↓";
+showMoreBtn.classList.add("show-more-btn");
+
+projectsSection.appendChild(showMoreBtn);
+
+/* ================================
+   TOGGLE SHOW MORE / LESS
+================================ */
+
+let expanded = false;
+
+showMoreBtn.addEventListener("click", () => {
+  expanded = !expanded;
+
+  if (expanded) {
+    /* Show all normal projects */
+    normalProjects.forEach((card) => {
+      card.style.display = "flex";
+      card.style.opacity = 0;
+      card.style.transform = "translateY(20px)";
+
+      setTimeout(() => {
+        card.style.opacity = 1;
+        card.style.transform = "translateY(0)";
+      }, 100);
+    });
+
+    showMoreBtn.innerText = "Show Less ↑";
+  } else {
+    /* Hide normal projects again */
+    normalProjects.forEach((card) => {
+      card.style.display = "none";
+    });
+
+    showMoreBtn.innerText = "Show More Projects ↓";
+
+    /* Scroll back to top of projects section */
+    projectsSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+/* ================================
+   HIT TAG LABEL UI
+================================ */
+
+hitProjects.forEach((card) => {
+  const badge = document.createElement("span");
+  badge.innerText = "🔥 HIT";
+  badge.classList.add("hit-badge");
+
+  card.prepend(badge);
+});
+
+/* ================================
+   SCROLL REVEAL ANIMATION
+================================ */
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+projectCards.forEach((card) => {
   card.style.opacity = 0;
-  card.style.transform = 'translateY(20px)';
-  card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  card.style.transform = "translateY(20px)";
+  card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+
   observer.observe(card);
 });
 
+/* ================================
+   FAVICON DARK/LIGHT MODE FIX
+================================ */
+
 function updateFavicon() {
   const favicon = document.getElementById("favicon");
-  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  favicon.href = isDarkMode ? "images/UnityDark.ico" : "images/UnityLight.ico";
-}
-function updateFavicon() {
-  const favicon = document.getElementById("favicon");
-  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  favicon.href = isDarkMode ? "images/UnityDark.ico" : "images/UnityLight.ico";
+  const isDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  favicon.href = isDarkMode
+    ? "images/UnityDark.ico"
+    : "images/UnityLight.ico";
 }
 
-// Run on page load
 updateFavicon();
 
-// Listen for changes in color scheme
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", updateFavicon);

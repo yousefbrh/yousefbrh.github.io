@@ -269,3 +269,41 @@ body {
     text-align: center;
   }
 }
+
+/* HIT Badge */
+.hit-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(108, 242, 194, 0.15);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Make card relative so badge works */
+.project-card {
+  position: relative;
+}
+
+/* Show More Button */
+.show-more-btn {
+  margin: 40px auto 0;
+  display: block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.show-more-btn:hover {
+  background: var(--accent-soft);
+  transform: scale(1.05);
+}
